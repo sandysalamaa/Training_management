@@ -1,0 +1,32 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+<h1>Payment List</h1>
+<a href="{% url 'payment-create' %}" class="btn btn-primary mb-3">Add New Payment</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Trainer</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for payment in payments %}
+        <tr>
+            <td>{{ payment.trainer.name }}</td>
+            <td>{{ payment.amount }}</td>
+            <td>{{ payment.date }}</td>
+            <td>{{ payment.status }}</td>
+            <td>
+                <a href="{% url 'payment-update' payment.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'payment-delete' payment.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+<h1>{{ course.name }}</h1>
+<p><strong>Description:</strong> {{ course.description }}</p>
+<p><strong>Start Date:</strong> {{ course.start_date }}</p>
+<p><strong>End Date:</strong> {{ course.end_date }}</p>
+<p><strong>Trainer:</strong> {{ course.trainer.name }}</p>
+
+<a href="{% url 'course-list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

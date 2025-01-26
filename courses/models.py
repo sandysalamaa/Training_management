@@ -14,8 +14,8 @@ class Trainer(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=100,blank = True,null =True)
     description = models.TextField(blank = True,null =True)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date = models.DateField(blank = True,null =True)
+    end_date = models.DateField(blank = True,null =True)
     trainer = models.ForeignKey(Trainer, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
